@@ -10,6 +10,11 @@ import {
   MasaSessionRouter,
   sessionCheckHandler,
 } from "@masa-finance/masa-express";
+import {
+  CreateSoulNameResult,
+  SoulNameErrorCodes,
+} from "@masa-finance/masa-sdk";
+import cors from "cors";
 
 const app: Express = express();
 
@@ -36,6 +41,13 @@ const sessionMiddleware: RequestHandler = MasaSessionMiddleware({
   environment,
 });
 
+app.use(
+  cors({
+    origin: domain,
+    credentials: true,
+  })
+);
+
 // session related
 app.use(
   "/session",
@@ -54,9 +66,13 @@ soulNameRouter.use(sessionCheckHandler as never);
 soulNameRouter.post(
   "/soul-name/store",
   (request: Request, response: Response) => {
-    response.json({
-      message: "hello world!",
-    });
+    const result: CreateSoulNameResult = {
+      success: false,
+      message: "Hello world!",
+      errorCode: SoulNameErrorCodes.UnknownError,
+    };
+    console.log(result);
+    response.json(result);
   }
 );
 
