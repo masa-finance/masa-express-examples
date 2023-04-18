@@ -78,7 +78,7 @@ soulNameRouter.post(
 
 app.use(soulNameRouter);
 
-const port: number = 4000; // use whatever port you need
+const port = process.env.PORT || 4000; // use whatever port you need
 
 app.listen(port, () => {
   console.log(`Express app listening at 'http://localhost:${port}'`);
