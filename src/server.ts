@@ -63,20 +63,17 @@ export const soulNameRouter: Router = express.Router();
 soulNameRouter.use(sessionMiddleware);
 soulNameRouter.use(sessionCheckHandler as never);
 
-soulNameRouter.post(
-  "/soul-name/store",
-  (request: Request, response: Response) => {
-    const result: CreateSoulNameResult = {
-      success: false,
-      message: "Hello world!",
-      errorCode: SoulNameErrorCodes.UnknownError,
-    };
-    console.log(result);
-    response.json(result);
-  }
-);
+soulNameRouter.post("/store", (request: Request, response: Response) => {
+  const result: CreateSoulNameResult = {
+    success: false,
+    message: "Hello world!",
+    errorCode: SoulNameErrorCodes.UnknownError,
+  };
+  console.log(result);
+  response.json(result);
+});
 
-app.use(soulNameRouter);
+app.use("/soul-name", soulNameRouter);
 
 const port = process.env.PORT || 4000; // use whatever port you need
 
