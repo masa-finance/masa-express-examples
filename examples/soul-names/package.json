@@ -1,0 +1,14 @@
+{
+  "name": "soul-names",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ./src/server.ts",
+    "prettier": "prettier src/**/*.ts --write"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "canvas-emoji": "git+https://github.com/masa-finance/canvas-emoji.git#master"
+  }
+}
