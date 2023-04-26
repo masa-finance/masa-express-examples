@@ -1,17 +1,14 @@
 {
-  "name": "masa-express-boilerplate",
+  "name": "masa-express-examples",
   "version": "1.0.1",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "workspaces": [
     "examples/*"
   ],
   "scripts": {
-    "start": "nodemon ./src/server.ts",
     "postinstall": "lerna exec -- yarn",
-    "prettier": "prettier src/**/*.ts --write",
-    "postprettier": "lerna exec -- yarn prettier"
+    "prettier": "lerna exec -- yarn prettier"
   },
   "dependencies": {
     "@masa-finance/masa-express": "^1.0.4",
