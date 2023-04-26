@@ -1,18 +1,15 @@
 import {
-  ISoulName,
   Masa,
   NetworkName,
-  signMessage,
   SoulNameErrorCodes,
   SoulNameMetadataStoreResult,
   SoulNameResultBase,
   SupportedNetworks,
 } from "@masa-finance/masa-sdk";
-import { providers, utils, Wallet } from "ethers";
-import { generateImage } from "./image-generator";
-import { initArweave } from "./arweave-client";
+import { providers, Wallet } from "ethers";
+import { generateMetadata } from "./generate-metadata";
 
-const { ARWEAVE_PRIVATE_KEY, WEB3_PRIVATE_KEY } = process.env;
+const { WEB3_PRIVATE_KEY } = process.env;
 
 export const storeSoulName = async (
   soulName: string,
@@ -34,6 +31,7 @@ export const storeSoulName = async (
       new providers.JsonRpcProvider(SupportedNetworks[network]?.rpcUrls[0])
     ),
     networkName: network,
+    verbose: true,
   });
 
   // query the extension from the given contract
@@ -44,9 +42,10 @@ export const storeSoulName = async (
     extension,
     ""
   )}${extension}`;
-  // scrub the soul name so we have it without extension as well
+  // scrub the soul name, so we have it without extension as well
   const soulNameWithoutExtension = soulName.replace(extension, "");
 
+  // validate soul name and get the length
   const {
     isValid,
     message,
@@ -73,178 +72,44 @@ export const storeSoulName = async (
     return result;
   }
 
-  const imageData: Buffer = await generateImage(soulNameWithExtension);
+  const generateMetadataResult = await generateMetadata({
+    masa,
+    soulname: soulNameWithExtension,
+  });
 
-  const imageHash: string = utils.keccak256(imageData);
-  const imageHashSignature = await signMessage(imageHash, masa.config.wallet);
-
-  if (imageHashSignature) {
-    // load arweave lazy
-    const arweave = initArweave();
-
-    // create arweave transaction for the image
-    const imageTransaction = await arweave.createTransaction(
-      {
-        data: imageData,
-      },
-      JSON.parse(ARWEAVE_PRIVATE_KEY as string)
+  if (generateMetadataResult?.success) {
+    // sign the soul name request
+    const signResult = await masa.contracts.soulName.sign(
+      soulNameWithoutExtension,
+      soulNameLength,
+      duration,
+      // build metadataUrl
+      `ar://${generateMetadataResult.metadataTransaction?.id}`,
+      receiver
     );
 
-    imageTransaction.addTag("Content-Type", "image/png");
-
-    // sign tx
-    await arweave.transactions.sign(
-      imageTransaction,
-      JSON.parse(ARWEAVE_PRIVATE_KEY as string)
-    );
-    const imageResponse = await arweave.transactions.post(imageTransaction);
-
-    if (imageResponse.status !== 200) {
-      result.message = `Generating metadata image failed! ${imageResponse.statusText}`;
-      result.errorCode = SoulNameErrorCodes.ArweaveError;
+    if (!signResult) {
+      result.message = "Signing soul name failed!";
+      result.errorCode = SoulNameErrorCodes.CryptoError;
       console.error(result.message);
       return result;
     }
 
-    // get current network
-    const currentNetwork = await masa.config.wallet.provider?.getNetwork();
-
-    if (!currentNetwork) {
-      result.message = "Unable to evaluate current network!";
-      result.errorCode = SoulNameErrorCodes.NetworkError;
-      console.error(result.message);
-      return result;
-    }
-
-    // create metadata
-    const metadata: ISoulName = {
-      description: "This is my 3rd Party soul name!" as any,
-      external_url: "https://my-fancy-app.org" as any,
-      name: soulNameWithExtension,
-      image: `${masa.soulName.getSoulNameMetadataPrefix()}${
-        imageTransaction.id
-      }`,
-      imageHash,
-      imageHashSignature,
-      network: masa.config.networkName,
-      chainId: currentNetwork.chainId.toString(),
-      signature: "",
-      attributes: [
-        {
-          trait_type: "Base",
-          value: "Starfish",
-        },
-        {
-          trait_type: "Eyes",
-          value: "Big",
-        },
-        {
-          trait_type: "Mouth",
-          value: "Surprised",
-        },
-        {
-          trait_type: "Level",
-          value: 5,
-        },
-        {
-          trait_type: "Stamina",
-          value: 1.4,
-        },
-        {
-          trait_type: "Personality",
-          value: "Sad",
-        },
-        {
-          display_type: "boost_number",
-          trait_type: "Aqua Power",
-          value: 40,
-        },
-        {
-          display_type: "boost_percentage",
-          trait_type: "Stamina Increase",
-          value: 10,
-        },
-        {
-          display_type: "number",
-          trait_type: "Generation",
-          value: 2,
-        },
-      ],
+    return {
+      success: true,
+      errorCode: SoulNameErrorCodes.NoError,
+      message: "",
+      // image info
+      imageTransaction: generateMetadataResult.imageTransaction,
+      imageResponse: generateMetadataResult.imageResponse,
+      // metadata info
+      metadataTransaction: generateMetadataResult.metadataTransaction,
+      metadataResponse: generateMetadataResult.metadataResponse,
+      // signature
+      signature: signResult.signature,
+      authorityAddress: signResult.authorityAddress,
     };
-
-    // sign metadata
-    const metadataSignature = await signMessage(
-      JSON.stringify(metadata, null, 2),
-      masa.config.wallet
-    );
-
-    if (metadataSignature) {
-      // place signature inside the metadata object
-      metadata.signature = metadataSignature;
-
-      {
-        // create arweave transaction for the metadata
-        const metadataTransaction = await arweave.createTransaction(
-          {
-            data: Buffer.from(JSON.stringify(metadata as never)),
-          },
-          JSON.parse(ARWEAVE_PRIVATE_KEY as string)
-        );
-
-        metadataTransaction.addTag("Content-Type", "application/json");
-
-        // sign tx
-        await arweave.transactions.sign(
-          metadataTransaction,
-          JSON.parse(ARWEAVE_PRIVATE_KEY as string)
-        );
-
-        const metadataResponse = await arweave.transactions.post(
-          metadataTransaction
-        );
-
-        if (metadataResponse.status !== 200) {
-          result.message = `Generating metadata failed! ${imageResponse.statusText}`;
-          result.errorCode = SoulNameErrorCodes.ArweaveError;
-          console.error(result.message);
-          return result;
-        }
-
-        const soulNameMetaDataUrl = `${masa.soulName.getSoulNameMetadataPrefix()}${
-          metadataTransaction.id
-        }`;
-
-        const signResult = await masa.contracts.soulName.sign(
-          soulNameWithoutExtension,
-          soulNameLength,
-          duration,
-          soulNameMetaDataUrl,
-          receiver
-        );
-
-        if (!signResult) {
-          result.message = "Signing soul name failed!";
-          result.errorCode = SoulNameErrorCodes.CryptoError;
-          console.error(result.message);
-          return result;
-        }
-
-        return {
-          success: true,
-          errorCode: SoulNameErrorCodes.NoError,
-          message: "",
-          // image info
-          imageTransaction,
-          imageResponse,
-          // metadata info
-          metadataTransaction,
-          metadataResponse,
-          // signature
-          signature: signResult.signature,
-          authorityAddress: signResult.authorityAddress,
-        };
-      }
-    }
   }
-  return result;
+
+  return generateMetadataResult;
 };
