@@ -531,9 +531,9 @@
     ethers "~5.7.2"
 
 "@masa-finance/masa-express@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@masa-finance/masa-express/-/masa-express-1.0.5.tgz#bac035d6ac042785b3706accd577f42b77432149"
-  integrity sha512-pIVHs4tQlsJGxy3kl6zudB+u5tHZAjpY5CUHhtk1rQBqcUtIL8KYpPReFsPXvRlBT7C2sMqDY+vcbxetQju1xg==
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@masa-finance/masa-express/-/masa-express-1.0.13.tgz#6106dca7b49bd3e6770d570f5316b03487923e21"
+  integrity sha512-Wm2ioumRNEm4BBlkl2ZkuYXDrQBVSiF034VEtMGR/7cns/ucYSgFv5aOvWY3q0zGRwJd2i17SQl1L+gr4w1qLw==
   dependencies:
     "@masa-finance/masa-sdk" "^1.15.1"
     express "^4.18.2"
