@@ -523,29 +523,29 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@masa-finance/masa-contracts-identity@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@masa-finance/masa-contracts-identity/-/masa-contracts-identity-1.7.0.tgz#4248d1eae9d90a6e558be716b1a864358d44a48d"
-  integrity sha512-XewBQzADlZJ2tkxrXS9DSbPvwd9An0kBbLg12DpGtHWr4mxNQz8Gg+o0SebajYGAcMmJxvd+K6fsWUEr26l/ow==
+"@masa-finance/masa-contracts-identity@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@masa-finance/masa-contracts-identity/-/masa-contracts-identity-1.8.0.tgz#d32b9416a377a736b567a6bcbbedcf973314b269"
+  integrity sha512-cpUVyWmlOP3683MiSTYKlTOAgmYpGhOIsnCNpU/nq2nP4hUOzCX4O3lpFTUMHIZEY6yX36Y1Rg/bonc3ELLk5A==
   dependencies:
     ethers "~5.7.2"
 
 "@masa-finance/masa-express@^1.0.5":
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/@masa-finance/masa-express/-/masa-express-1.0.16.tgz#fe3538bb2e477a860f9c32f845985fa412b4227f"
-  integrity sha512-uDDTS8mk++j3OLtsqH3YPcxNEovhfskWIMt/4KjtjehKok8LoyRYKCPpjBhUhgZm4hauOF6v7+bE79F6w9CG6A==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@masa-finance/masa-express/-/masa-express-1.1.1.tgz#b7b22fba2112569fc44d00043fd2d98ce12bc4c0"
+  integrity sha512-VNsXsuj5uHWzx31hzPqiG36Pkodh2CPFYADWVYqAO8AozwAzexiCOmfTlQPBlDR2gcKnPRpe/hSm3b0zlCVDrw==
   dependencies:
-    "@masa-finance/masa-sdk" "^2.1.1"
+    "@masa-finance/masa-sdk" "^3.0.2"
     express "^4.18.2"
     express-session "^1.17.3"
     uuid "^9.0.0"
 
-"@masa-finance/masa-sdk@^2.1.1":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@masa-finance/masa-sdk/-/masa-sdk-2.2.0.tgz#4bde3e55a3cb19978e8093ecee641721048f8c21"
-  integrity sha512-CDpfyF7H61MglH25La0jXQqHLuiRpO9HUZYIwWVMDbS6cNW0WgGt1YVZ/fC1TNwVbJnRF1KNr2wWLOoEXASlIA==
+"@masa-finance/masa-sdk@^3.0.2":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@masa-finance/masa-sdk/-/masa-sdk-3.1.1.tgz#6682ddd10d7feb3417a17e628541ec36bfaef372"
+  integrity sha512-YAqqYn3WOAnRkVOqx+rWfuz6SUI9FmpiXiipW+4lVUtDKA8feYqClQ6vlH3uGhcam//TQO3x4SC0gpt9ESnheA==
   dependencies:
-    "@masa-finance/masa-contracts-identity" "^1.7.0"
+    "@masa-finance/masa-contracts-identity" "^1.8.0"
     "@masa-finance/masa-token" "^2.0.0"
     arweave "1.11.8"
     axios "^1.3.2"
