@@ -1425,11 +1425,11 @@ camelcase@^5.3.1:
 
 "canvas-emoji@git+https://github.com/masa-finance/canvas-emoji.git#master":
   version "1.1.6"
-  uid "7461fcb7e072877b5e85b59462993881edaec935"
-  resolved "git+https://github.com/masa-finance/canvas-emoji.git#7461fcb7e072877b5e85b59462993881edaec935"
+  uid "86f13164dbca4abfb33933013da4ec7b9e730972"
+  resolved "git+https://github.com/masa-finance/canvas-emoji.git#86f13164dbca4abfb33933013da4ec7b9e730972"
   dependencies:
     canvas "^2.11.0"
-    node-emoji "^1.11.0"
+    node-emoji "~1.11.0"
 
 canvas@^2.11.0, canvas@^2.11.2:
   version "2.11.2"
@@ -3633,7 +3633,7 @@ node-addon-api@^3.2.1:
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-3.2.1.tgz#81325e0a2117789c0128dab65e7e38f07ceba161"
   integrity sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==
 
-node-emoji@^1.11.0:
+node-emoji@~1.11.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.11.0.tgz#69a0150e6946e2f115e9d7ea4df7971e2628301c"
   integrity sha512-wo2DpQkQp7Sjm2A0cq+sN7EHKO6Sl0ctXeBdFZrL9T9+UywORbufTcTZxom8YqpLQt/FqNMUkOpkZrJVYSKD3A==
