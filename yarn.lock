@@ -1504,8 +1504,8 @@ camelcase@^5.3.1:
 
 "canvas-emoji@git+https://github.com/masa-finance/canvas-emoji.git#master":
   version "1.1.8"
-  uid "7870ae51f312fb011452421b248ea99eec3ad3bc"
-  resolved "git+https://github.com/masa-finance/canvas-emoji.git#7870ae51f312fb011452421b248ea99eec3ad3bc"
+  uid e4f93b9c2c387fcaf2403e4f4e9d166feb7be257
+  resolved "git+https://github.com/masa-finance/canvas-emoji.git#e4f93b9c2c387fcaf2403e4f4e9d166feb7be257"
   dependencies:
     canvas "^2.11.0"
     node-emoji "~1.11.0"
