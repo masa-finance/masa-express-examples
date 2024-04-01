@@ -421,32 +421,32 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@layerzerolabs/evm-sdks-core@^2.1.13":
-  version "2.1.13"
-  resolved "https://registry.yarnpkg.com/@layerzerolabs/evm-sdks-core/-/evm-sdks-core-2.1.13.tgz#fbf1e99c6b506966f8bd82c845dd63154fd25d35"
-  integrity sha512-vvie6LtJnfRL//Hj1s/WCzxHeTscJaDZp4V+O+mzlNc3llNP4kz2+6XFjzoFq3MFJbb78MYqyNbXmAfy46f2wg==
+"@layerzerolabs/evm-sdks-core@^2.1.25":
+  version "2.1.25"
+  resolved "https://registry.yarnpkg.com/@layerzerolabs/evm-sdks-core/-/evm-sdks-core-2.1.25.tgz#84b6e7c5eab89af6065d553f554f288eb5a03a24"
+  integrity sha512-V1yEqFqdkd1uluWMkDSZ8MOAac3BC1bBHRv+9JeGmitUmBgFhQL/9+gcif32jitDJkihIKVG6HuaQNyzBbfJMg==
   dependencies:
     ethers "^5.7.2"
 
-"@layerzerolabs/lz-definitions@^2.0.25":
-  version "2.1.13"
-  resolved "https://registry.yarnpkg.com/@layerzerolabs/lz-definitions/-/lz-definitions-2.1.13.tgz#71035def4aa96a604f3204160f25cacc681b766d"
-  integrity sha512-rIPJ4OpD1lZwroicYUaSclGrCSgHQA45ubbqd4US206YGfbbdfLQNb1AzVB0eNLwhIyNBFGteXn3PaDuuXLx1A==
+"@layerzerolabs/lz-definitions@^2.1.23":
+  version "2.1.25"
+  resolved "https://registry.yarnpkg.com/@layerzerolabs/lz-definitions/-/lz-definitions-2.1.25.tgz#06ef48915a8990138fef5ba0ab025cd36f652693"
+  integrity sha512-Qbb07Awh4kNFjcsYgqWZoOQXuigcPmesv9puu01km0fBF8pHKgPXDlRHJnfhFeopR/69R/o3azbHqUoJaNmCxg==
   dependencies:
     tiny-invariant "^1.3.1"
 
-"@layerzerolabs/lz-evm-sdk-v2@^2.1.13":
-  version "2.1.13"
-  resolved "https://registry.yarnpkg.com/@layerzerolabs/lz-evm-sdk-v2/-/lz-evm-sdk-v2-2.1.13.tgz#9eeb816d4cc797c8bbeb5df422be143b6d5bb3d4"
-  integrity sha512-UavJj0cbIgLErllrL+wWR1LGqS3ABgVQf3Xg8+QPelIdBKXVws/Wd5ITWuA+R9NNaJK8l5FxxoO3zTh1IJEPTw==
+"@layerzerolabs/lz-evm-sdk-v2@^2.1.25":
+  version "2.1.25"
+  resolved "https://registry.yarnpkg.com/@layerzerolabs/lz-evm-sdk-v2/-/lz-evm-sdk-v2-2.1.25.tgz#fdccfce5c298a8324d2395dec5b56dd5016e5f26"
+  integrity sha512-NO+FkuAgw/ShVueapmT+zYar5gSHItEVUBSRy1SV3lGP4ilsxaNZy+R++bmvb3cUFnxSzEoo9DKUPZGO2Z2+lQ==
   dependencies:
-    "@layerzerolabs/evm-sdks-core" "^2.1.13"
+    "@layerzerolabs/evm-sdks-core" "^2.1.25"
     ethers "^5.7.2"
 
-"@layerzerolabs/lz-v2-utilities@^2.0.25":
-  version "2.1.13"
-  resolved "https://registry.yarnpkg.com/@layerzerolabs/lz-v2-utilities/-/lz-v2-utilities-2.1.13.tgz#670e28ec95dd2c79505a91f1ec6432d56fb7fa94"
-  integrity sha512-hoc94zjM8ePCQTLubsIASNkBLFpY+YlbX2HIKmORLuZ4thCV+PlQSHZBsgjDLp799Lc71zBFzODRu4XCHay3Tg==
+"@layerzerolabs/lz-v2-utilities@^2.1.23":
+  version "2.1.25"
+  resolved "https://registry.yarnpkg.com/@layerzerolabs/lz-v2-utilities/-/lz-v2-utilities-2.1.25.tgz#8c9df020cc05a9099b1c6a6d1543a978a7bf44bc"
+  integrity sha512-lYVns/W5mxSnT1RfGt/KLnsvtCa3el2bnBd/W4kq0SgUxmkO/6ozVoQdplw4ZZUlHAiNkDYzMSXFGXCGF7dZZw==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/address" "^5.7.0"
@@ -454,7 +454,7 @@
     "@ethersproject/bytes" "^5.7.0"
     "@ethersproject/keccak256" "^5.7.0"
     "@ethersproject/solidity" "^5.7.0"
-    "@layerzerolabs/lz-evm-sdk-v2" "^2.1.13"
+    "@layerzerolabs/lz-evm-sdk-v2" "^2.1.25"
     "@solana/web3.js" "^1.87.6"
     tiny-invariant "^1.3.1"
 
@@ -550,40 +550,48 @@
   dependencies:
     ethers "~5.7.2"
 
-"@masa-finance/masa-express@^1.0.5":
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/@masa-finance/masa-express/-/masa-express-1.4.3.tgz#d67230853c3551a294803071b95ae65c2b9cfe01"
-  integrity sha512-37an6WLqB9fg+rJrNVnMHIGLUacNjJyWltV1/hmNHT7JK7i8E0DRdMpoQWALjNdrpuFxQoiSqS9SRfW30nVTeQ==
+"@masa-finance/masa-contracts-marketplace@^2.1.16":
+  version "2.1.16"
+  resolved "https://registry.yarnpkg.com/@masa-finance/masa-contracts-marketplace/-/masa-contracts-marketplace-2.1.16.tgz#80ea6f98c2c2b9762eb9699295e5e0f2c3f04cde"
+  integrity sha512-WB7p+MwQBkoYou0MDiDp9pBMbUF91SJpoGuGeisa0fE5BWU2dlHWIBP3bckm+eoxv6Ls2/c46CTxGfuvOQbatw==
   dependencies:
-    "@masa-finance/masa-sdk" "^3.18.2"
-    express "^4.18.2"
+    ethers "~5.7.2"
+
+"@masa-finance/masa-express@^1.0.5":
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/@masa-finance/masa-express/-/masa-express-1.4.5.tgz#c29f9f817473e10f3c2f5889086991359e1d065e"
+  integrity sha512-Rdd0czTuawjIMYUZGW1s43DP1o2odek99ZlZ6wx6CAtAU9BGoGKRk3YciqEbt0eH8WN+uRTjc9aUplvIXfjqJQ==
+  dependencies:
+    "@masa-finance/masa-sdk" "^3.24.10"
+    express "^4.19.2"
     express-session "^1.18.0"
     uuid "^9.0.1"
 
-"@masa-finance/masa-sdk@^3.18.2":
-  version "3.18.2"
-  resolved "https://registry.yarnpkg.com/@masa-finance/masa-sdk/-/masa-sdk-3.18.2.tgz#db62092ecbcebbe3ed8622bdfe60a89c24b894f0"
-  integrity sha512-cfYw3z9OgF3k8YElo7MxngoyTrSeyNB2B31QvvvlJi3MOeQpjcU/J/17DzwTsQjlnNihgaVoKE5+g4G7/KKaYQ==
+"@masa-finance/masa-sdk@^3.24.10":
+  version "3.25.0"
+  resolved "https://registry.yarnpkg.com/@masa-finance/masa-sdk/-/masa-sdk-3.25.0.tgz#e27d6fd3cf2a65e2d46c94d7d0934ee1045f6aa8"
+  integrity sha512-4NuGCJHGhCMMYm24LZswg3p4lPQ2TJK+4zflbmq6pzQl5Q8KgR6Jz4x4NZDWmTnZcQIO+UciIYB+6gO64Zf+ZA==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/abstract-provider" "^5.7.0"
     "@ethersproject/abstract-signer" "^5.7.0"
     "@ethersproject/bignumber" "^5.7.0"
     "@ethersproject/providers" "^5.7.2"
-    "@layerzerolabs/lz-definitions" "^2.0.25"
-    "@layerzerolabs/lz-v2-utilities" "^2.0.25"
+    "@layerzerolabs/lz-definitions" "^2.1.23"
+    "@layerzerolabs/lz-v2-utilities" "^2.1.23"
     "@masa-finance/masa-contracts-identity" "^1.12.0"
-    "@masa-finance/masa-token" "^2.0.8"
+    "@masa-finance/masa-contracts-marketplace" "^2.1.16"
+    "@masa-finance/masa-token" "^2.2.1"
     arweave "1.11.8"
-    axios "^1.6.7"
+    axios "^1.6.8"
     ethers "~5.7.2"
     grapheme-splitter "^1.0.4"
-    typescript "^5.3.3"
+    typescript "^5.4.3"
 
-"@masa-finance/masa-token@^2.0.8":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@masa-finance/masa-token/-/masa-token-2.0.8.tgz#dfdefc364837d25fa7f44d1d0f1ccac4de6252cf"
-  integrity sha512-jQlp7YfEe1FtGuxUn7EvmXRIrI+YvJEUkulccfbKx4dIrlX6CsvGjEahBolsrbP/r2+jmZMoU7zG8PaYDFfRdA==
+"@masa-finance/masa-token@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@masa-finance/masa-token/-/masa-token-2.2.1.tgz#55d177868fb246284493a1a8ca46bec32d13e9c9"
+  integrity sha512-9xAYzCF5x1V07KUCd79z/3/+hq4H/hlU6CE6/th8f8OESGBDpZL0oPOlGJkHwRtM1sYUa04jbeaHIdjZ6Y2Kig==
 
 "@noble/curves@^1.2.0":
   version "1.3.0"
@@ -1404,12 +1412,21 @@ axios@^0.27.2:
     follow-redirects "^1.14.9"
     form-data "^4.0.0"
 
-axios@^1.6.0, axios@^1.6.7:
+axios@^1.6.0:
   version "1.6.7"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.7.tgz#7b48c2e27c96f9c68a2f8f31e2ab19f59b06b0a7"
   integrity sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==
   dependencies:
     follow-redirects "^1.15.4"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
+
+axios@^1.6.8:
+  version "1.6.8"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz#66d294951f5d988a00e87a0ffb955316a619ea66"
+  integrity sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==
+  dependencies:
+    follow-redirects "^1.15.6"
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
@@ -2348,7 +2365,7 @@ express-session@^1.17.3, express-session@^1.18.0:
     safe-buffer "5.2.1"
     uid-safe "~2.1.5"
 
-express@^4.18.2:
+express@^4.18.2, express@^4.19.2:
   version "4.19.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.19.2.tgz#e25437827a3aa7f2a827bc8171bbbb664a356465"
   integrity sha512-5T6nhjsT+EOMzuck8JjBHARTHfMht0POzlA60WV2pMD3gyXw2LZnZ+ueGdNxG+0calOJcWKbpFcuzLZ91YWq9Q==
@@ -2481,7 +2498,7 @@ flat@^5.0.2:
   resolved "https://registry.yarnpkg.com/flat/-/flat-5.0.2.tgz#8ca6fe332069ffa9d324c327198c598259ceb241"
   integrity sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==
 
-follow-redirects@^1.14.9, follow-redirects@^1.15.4:
+follow-redirects@^1.14.9, follow-redirects@^1.15.4, follow-redirects@^1.15.6:
   version "1.15.6"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz#7f815c0cda4249c74ff09e95ef97c23b5fd0399b"
   integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
@@ -5486,7 +5503,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-"typescript@>=3 < 6", typescript@^5.0.4, typescript@^5.3.3:
+"typescript@>=3 < 6", typescript@^5.0.4, typescript@^5.4.3:
   version "5.4.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.3.tgz#5c6fedd4c87bee01cd7a528a30145521f8e0feff"
   integrity sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==
